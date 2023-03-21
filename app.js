@@ -4,7 +4,7 @@ let path = require('path');
 const mongoose = require('mongoose');
 let ejsMate = require('ejs-mate');
 var methodOverride = require('method-override');
-
+let dummyDB = require('./dummyDB');
 
 
 
@@ -24,6 +24,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'))); //static files
 
+
+dummyDB();
 
 let port = 5000;
 app.listen(port, () => {
